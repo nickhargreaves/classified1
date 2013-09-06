@@ -23,6 +23,23 @@ class Admin extends CI_Controller {
       redirect('login', 'refresh');
 	}
   }
+  function add_donor(){
+  	$data['title']	= "Add Donor";	
+  	$this->load->view("header", $data);
+	$this->load->view("add_donor", $data);
+	$this->load->view("footer");
+  }
+  public function process_add_donor(){
+  	$this->load->model('admin_m');
+	$data["message"] = $this->admin_m->add_donor($_POST, $_FILES);
+ 	
+	//add another?
+	$data['title']	= "Add Donor";	
+  	$this->load->view("header", $data);
+	$this->load->view("add_donor", $data);
+	$this->load->view("footer");
+  }
+  
   
   function logout()
   {

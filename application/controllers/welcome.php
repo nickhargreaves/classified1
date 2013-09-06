@@ -19,10 +19,13 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		/*
 		$data['title'] = "Home";
 		$this->load->view('header.php', $data);
 		$this->load->view('welcome_message', $data);
 		$this->load->view('footer.php', $data);
+		 * */
+		 $this->load->view('signin.php');
 	}
 }
 

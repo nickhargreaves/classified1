@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title><?php echo $title.' | CodeIgnited';?></title>
+    <title><?php echo $title.' | Classified1';?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -37,27 +37,17 @@
                     <span class="icon-bar"></span>
                   </a>
                   
-                  <a class="brand" href="#">CodeIgnited</a>
+                  <a class="brand" href="#">Classified1</a>
                   <div class="nav-collapse collapse navbar-responsive-collapse">
                     <ul class="nav">
                       <li><a href=""><i class="icon-home"></i></a></li>
                     </ul>
-                    <form class="navbar-search pull-left" action="" method="post" id="form1">
-                    <div class="input-append">
-                    <input class="span5" id="inputIcon" type="text" name="keyword" autocomplete="off" placeholder="Search">
-                    <script> 
-	     function formSubmit()
-{
-document.getElementById("form1").submit();
-}
-</script>
-	      <span class="add-on btn" onclick="formSubmit()" type="button"><i class="icon-search"></i></span>
-	    </div>
-                    </form>
+   
                     <ul class="nav pull-right">
                     	
                        <li><a href="">About</a></li>
-                      <li><a href="">Blog</a></li>
+                      <li><a href="">Submit Report</a></li>
+                      <li><a href="">Correspondent</a></li>
                       <li class="divider-vertical"></li>
                       <li><a href="">Contact Us</a></li>
                     </ul>
