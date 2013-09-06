@@ -24,6 +24,15 @@
                     <link rel="apple-touch-icon-precomposed" href="<?php echo base_url();?>assets/ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="<?php echo base_url();?>assets/ico/favicon.png">
 
+
+	<style type="text/css" title="currentStyle">
+			@import "<?php echo base_url()?>assets/datatables/css/demo_page.css";
+			@import "<?php echo base_url()?>assets/datatables/css/demo_table.css";
+		</style>
+		<script type="text/javascript" language="javascript" src="<?php echo base_url()?>assets/datatables/js/jquery.js"></script>
+		<script type="text/javascript" language="javascript" src="<?php echo base_url()?>assets/datatables/js/jquery.dataTables.js"></script>
+		
+		
   </head>
   <body data-spy="scroll" data-target=".bs-docs-sidebar">
   	<div class="container" style="background:#fff;padding:5px">
@@ -44,12 +53,12 @@
                     </ul>
    
                     <ul class="nav pull-right">
-                    	
-                       <li><a href="">About</a></li>
-                      <li><a href="">Submit Report</a></li>
-                      <li><a href="">Correspondent</a></li>
+                       <li><a href="">Correspondents</a></li>
+                      <li><a href="<?php echo base_url();?>index.php/admin/view_donors">Donors</a></li>
+                      <li><a href="<?php echo base_url();?>index.php/admin/view_projects">Projects</a></li>
+                      <li><a>Reports</a></li>
                       <li class="divider-vertical"></li>
-                      <li><a href="">Contact Us</a></li>
+                      <li><a href="">Logout</a></li>
                     </ul>
                   </div><!-- /.nav-collapse -->
                 </div>

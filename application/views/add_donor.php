@@ -8,6 +8,8 @@
 	<br />
 	<input name="email" placeholder="Email Address" type="text">
 	<br />
+	<textarea name="description" rows="5" cols="40"></textarea>
+	<br />
 	<input name="username" placeholder="Username" type="text">
 	<br />
 	<input name="password" placeholder="Password" type="text">

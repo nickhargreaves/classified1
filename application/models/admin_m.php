@@ -1,6 +1,18 @@
 <?php
 Class Admin_m extends CI_Model
 {
+	public function get_donors(){
+		$this->db->select("users.*");
+		$this->db->where("users.is_donor", "1");
+		$this->db->from("users");
+		$result = $this->db->get();
+		return $result->result_array();
+	}
+	public function add_project($post){
+		if($this->db->query("insert into projects(title, description, category)values('$post[title]', '$post[description]', '$post[category]')")){
+			return "Added successfully!";
+		}
+	}
 	function add_donor($post, $files)
 	{
 			
@@ -19,7 +31,7 @@ Class Admin_m extends CI_Model
 	  	{
 		  	if ($files["file"]["error"] > 0)
 		    {
-		    	$data['return']= "Return Code: " . $files["file"]["error"] . "<br>";
+		    	return "Return Code: " . $files["file"]["error"] . "<br>";
 		    }
 			else
 	   		{
@@ -31,7 +43,7 @@ Class Admin_m extends CI_Model
 
 		  	  if (file_exists($path."uploads/" . $files["file"]["name"]))
 		      {
-		     	 $data['return']= $files["file"]["name"] . " already exists. ";
+		     	 return $files["file"]["name"] . " already exists. ";
 		      }
 		    	else
 		      {
@@ -39,14 +51,14 @@ Class Admin_m extends CI_Model
 			      move_uploaded_file($files["file"]["tmp_name"], $path."uploads/" . $files["file"]["name"]);
 			      //echo "Stored in: " . $path."upload/" . $files["file"]["name"];
 			      $password = md5($post['password']);
-			   	  $this->db->query("insert into users(name, email, is_donor, logo, username, password)values('$post[name]', '$post[email]', '1', '$filename', '$post[username]', '$password')");
-			      $data['return']= "Added successfully!";
+			   	  $this->db->query("insert into users(name, email, is_donor, logo, username, password, description)values('$post[name]', '$post[email]', '1', '$filename', '$post[username]', '$password', '$post[description]')");
+			      return "Added successfully!";
 		      }
 		  }
 		  }
 			else
 		  {
-		 	 $data['return']= "Invalid file";
+		 	 return "Invalid file";
 		  }	
 	  
 			//redirect(base_url().'index.php/admin');

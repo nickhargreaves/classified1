@@ -5,6 +5,7 @@ class Admin extends CI_Controller {
   function __construct()
   {
     parent::__construct();
+	$this->load->model('admin_m');
   }
 
   function index()
@@ -23,14 +24,27 @@ class Admin extends CI_Controller {
       redirect('login', 'refresh');
 	}
   }
-  function add_donor(){
+  public function add_project(){
+  	$data['title'] = "Add Project";
+	$this->load->view("header", $data);
+	$this->load->view("add_project", $data);
+	$this->load->view("footer");
+  }
+  public function process_add_project(){
+  	$data['message'] = $this->admin_m->add_project($_POST);
+	
+	$data['title'] = "Add Project";
+	$this->load->view("header", $data);
+	$this->load->view("add_project", $data);
+	$this->load->view("footer");
+  }
+  public function add_donor(){
   	$data['title']	= "Add Donor";	
   	$this->load->view("header", $data);
 	$this->load->view("add_donor", $data);
 	$this->load->view("footer");
   }
   public function process_add_donor(){
-  	$this->load->model('admin_m');
 	$data["message"] = $this->admin_m->add_donor($_POST, $_FILES);
  	
 	//add another?
@@ -39,7 +53,14 @@ class Admin extends CI_Controller {
 	$this->load->view("add_donor", $data);
 	$this->load->view("footer");
   }
-  
+  public function view_donors(){
+  	$data['donors'] = $this->admin_m->get_donors();
+	$data['title'] = "View Donors";
+	
+	$this->load->view("header", $data);
+	$this->load->view("view_donors", $data);
+	$this->load->view("footer", $data);
+  }
   
   function logout()
   {
